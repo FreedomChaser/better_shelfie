@@ -28,6 +28,11 @@ export default class Bins extends Component{
     //        }
     //    }
     render(){ 
+        let bin = this.state.bins.map(e => {
+            if(e.product_name && e.price){
+                <Link to=''></Link>
+            }
+        })
        return(
            <div>
                 <Link to=''>Bin </Link>
