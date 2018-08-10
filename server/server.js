@@ -19,6 +19,7 @@ massive(CONNECTION_STRING).then(db => {
 })
 // .catch(error=>console.log('server connection error:', error))
 
+//goes with shelf comp
 app.get('/api/shelves/:id', async (req,res) => {
     const db = req.app.get('db')
     let {id} = req.params
@@ -32,15 +33,35 @@ app.get('/api/shelves/:id', async (req,res) => {
 })
 
 // goes with displayBin component
-// app.get('/api/bins/:shelfid/:binNumber', async (req, res) => {
-//     const db = req.app.get('db')
-//     let {shelfid} = req.params
-//     let {binNumber} = req.params
+app.get('/api/bins/:shelfId/displayBin/:binNumber', async (req, res) => {
+    const db = req.app.get('db')
+    let {shelfId} = req.params
+    let {binNumber} = req.params
 
-//     let bin = await get_bin(shelfid, binNumber)
+    let bin = await db.get_bin(shelfId, binNumber)
 
-//     res.status(200).send(bin)
-// })
+    res.status(200).send(bin)
+})
+
+// goes with displayBin component
+app.delete('/api/deleteBin/:id', async (req, res) => {
+    const db = req.app.get('db')
+    let {id} = req.params
+
+    let deletedBin = await db.delete_bin_by_id(id)
+    res.sendStatus(200)
+})
+
+// goes with displayBin component
+app.put('/api/bin/:id', async (req, res) => {
+    const db = req.app.get('db')
+    let {id} = req.params
+    let {product_name, price, img_url} = req.body
+    
+    let updatedBin = db.update_bin_by_id(id, product_name, price, img_url)
+
+    res.status(200).send(updatedBin)
+}) 
 
 //goes with addBin component
 // app.post()

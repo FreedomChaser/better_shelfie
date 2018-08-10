@@ -11,8 +11,8 @@ export default class Bins extends Component{
         }
     }
     //add res logic
-    // get nav working to add bin or disp bin
-    //build out add and disp
+    // get nav working to add bin
+    //build out add and debug disp
     componentDidMount(){
         axios.get('/api/shelves/' + this.props.id)
         .then(res => {
@@ -36,7 +36,7 @@ export default class Bins extends Component{
 
        
     render(){ 
-    console.log('props', this.props)
+    // console.log('props', this.props)
         // console.log('state', this.state.bins)
         
         let bin = this.state.bins.map(e => {

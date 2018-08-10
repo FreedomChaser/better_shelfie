@@ -7,7 +7,7 @@ export default class D extends Component{
             <div>
                 <h1>Shelf D</h1>
                 <div>
-                <Bins id={'d'}/>
+                <Bins id={'d'} history={this.props.history}/>
                 </div>
             </div>
         )
