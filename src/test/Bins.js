@@ -11,8 +11,6 @@ export default class Bins extends Component{
         }
     }
     //add res logic
-    //get bin properly displaying on all 4 shelves 
-    //link bin to b,c, d
     // get nav working to add bin or disp bin
     //build out add and disp
     componentDidMount(){
@@ -38,7 +36,7 @@ export default class Bins extends Component{
 
        
     render(){ 
-    // console.log(this.props)
+    console.log('props', this.props)
         // console.log('state', this.state.bins)
         
         let bin = this.state.bins.map(e => {

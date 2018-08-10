@@ -1,16 +1,13 @@
 import React from 'react'
+import Bins from '../test/Bins'
 
 export default class C extends React.Component{
     render(){
         return(
             <div>
-                <h1>Shelf A</h1>
+                <h1>Shelf C</h1>
                 <div>
-                    <h2>Bin 1</h2>
-                    <h2>Bin 2</h2>
-                    <h2>Bin 3</h2>
-                    <h2>Bin 4</h2>
-                    <h2>Bin 5</h2>
+                <Bins id={'c'}/>
                 </div>
             </div>
         )

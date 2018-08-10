@@ -22,7 +22,7 @@ massive(CONNECTION_STRING).then(db => {
 app.get('/api/shelves/:id', async (req,res) => {
     const db = req.app.get('db')
     let {id} = req.params
-    console.log('__api/shelves')
+    // console.log('__api/shelves')
 
 
     let bins = await db.get_all_bins(id)

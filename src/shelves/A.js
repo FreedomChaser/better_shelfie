@@ -7,7 +7,7 @@ export default class A extends React.Component{
             <div>
                 <h1>Shelf A</h1>
                 <div>
-                    <Bins id={'a'}/>
+                    <Bins id={'a'} history={this.props.history}/>
                 </div>
             </div>
         )
