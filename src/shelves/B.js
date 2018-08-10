@@ -2,6 +2,7 @@ import React from 'react'
 
 export default class B extends React.Component{
     render(){
+        console.log(this.props)
         return(
             <div>
                 <h1>Shelf B</h1>

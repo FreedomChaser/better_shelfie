@@ -1,4 +1,5 @@
 import React from 'react'
+import Bins from '../test/Bins'
 
 export default class A extends React.Component{
     render(){
@@ -6,11 +7,7 @@ export default class A extends React.Component{
             <div>
                 <h1>Shelf A</h1>
                 <div>
-                    <h2>Bin 1</h2>
-                    <h2>Bin 2</h2>
-                    <h2>Bin 3</h2>
-                    <h2>Bin 4</h2>
-                    <h2>Bin 5</h2>
+                    <Bins id={'a'}/>
                 </div>
             </div>
         )

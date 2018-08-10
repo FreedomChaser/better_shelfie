@@ -5,7 +5,9 @@ import B from '../shelves/B'
 import C from '../shelves/C'
 import D from '../shelves/D'
 import Home from '../Home'
-import Bins from '../test/Bins'
+// import Bins from '../test/Bins'
+import displayBin from '../test/displayBin'
+import addBin from '../test/addBin'
 //import four shelves and add routes
 export default function Nav(){
     return(
@@ -16,7 +18,9 @@ export default function Nav(){
                 <Route path='/b' component={B}/>
                 <Route path='/c' component={C}/>
                 <Route path='/d' component={D}/>
-                <Route path='/shevles/:shelfId' component={Bins}/>
+                {/* <Route path='/shevles/:shelfId' component={Bins}/> */}
+                <Route path='/bins/:shelfId/displayBin/:binNumber' component={displayBin}/>
+                <Route path='/bins/:shelfId/addBin/:binNumber' component={addBin}/>
             </Switch>
         </div>
     )

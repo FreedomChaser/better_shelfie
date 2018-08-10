@@ -3,8 +3,8 @@ import {withRouter, Link} from 'react-router-dom'
 
 class Nav extends React.Component{
     render(){
-    console.log('window', window.location.hash)
-    console.log('location', this.props)
+    // console.log('window', window.location.hash)
+    // console.log('location', this.props)
         if(this.props.location.pathname !== '/') {
             return(       
                 <Link to='/' >
