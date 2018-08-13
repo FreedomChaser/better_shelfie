@@ -1,4 +1,7 @@
 import React, {Component} from 'react'
+import axios from 'axios'
+import Nav from '../nav/nav'
+import {Link} from 'react-router-dom'
 
 export default class DisplayBin extends Component{
     constructor(){
@@ -9,15 +12,54 @@ export default class DisplayBin extends Component{
            price: 0,
            imgUrl: '' 
         }
+        this.addInventory = this.addInventory.bind( this )
     }
 
 //figure out how to catch and send user error for too long an image url string
-
-    //have an axios.post that pulls info from url params(through params) and state(through body) to pass everything to server 
+//write a method with an if else where if url is too long(using parse variable < 250) send an alert saying 'url too long'
+//else set state for url
+checkURL(val){
+    let str = val.length
+    if(str > 250){
+        alert('URL exceeds max character length of 250')
+    }else{
+        this.setState({imgUrl: val})
+    }
+}
+    //have an axios.post that pulls info from url params(through params) and state(through body) to pass everything to server
+addInventory(){
+    console.log('working')
+    let shelfId = this.props.match.params.shelfId
+    let binNum = Number(this.props.match.params.index) + 1
+    axios.post(`/api/bins/${shelfId}/addBin/${binNum}`, {
+        product_name: this.state.name, 
+        price: this.state.price, 
+        img_url: this.state.imgUrl
+    })
+    //add the routing to send user back to shelf view 
+    .then(() => {this.props.history.push(`/${shelfId}`)})
+}
+    
     render(){
+    // console.log('props', this.props)
+        
         return(
+            //this.props.match.params.shelfId OR index (+1?)
             //this is where I'll add all the input boxes and such
-            <div>add bin</div>
+            <div>
+                <Nav/>
+                <Link to={`/${this.props.match.params.shelfId}`}>
+                <h1>Shelf {this.props.match.params.shelfId}</h1>
+                </Link>
+                <h2>Bin {Number(this.props.match.params.index) + 1}</h2>
+                <p>Name</p>
+                <input className='inputAdd' onChange={e => this.setState({name: e.target.value})}></input>
+                <p>Price</p>
+                <input className='inputAdd' onChange={e => this.setState({price: e.target.value})} placeholder='$0.00'></input>
+                <p>Image url</p>
+                <input className='inputAdd' onChange={e => this.checkURL(e.target.value)} placeholder='character limit 250'></input>
+                <button onClick={this.addInventory}>+ Add Inventory</button>
+            </div>
         )
     }
 }

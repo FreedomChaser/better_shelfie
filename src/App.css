@@ -1,23 +1,85 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+body{
+  font-family: 'Open Sans', sans-serif;
 }
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+/* home page */
+.title{
+  background-color: #AB2A19;
   color: white;
+  font-size: 3vh;
+  font-weight: bold;
+  display: flex;
+  padding: 10px;
+  padding-left: 18vw;  
+}
+.homeH1{
+  padding-left: 15px;
+  padding-top: 15px;
+  text-transform: uppercase
+}
+.homeImg{
+  height:6vh
+}
+.homeBtn{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5%
 }
 
-.App-title {
-  font-size: 1.5em;
+button{
+  background-color: #D34735;
+  font-size: 3vh;
+  color: white;
+  width: 65vw;
+  height: 6vh;
+  padding-right: 25vw;
+  margin: 2%;
+  border: none;
+  border-radius: 5px
 }
 
-.App-intro {
-  font-size: large;
+/* bins page */
+.shelf{
+  display: flex;
+}
+.binsBtn{
+  display: flex;
+  flex-direction: column;
+  align-items: center
+}
+.nullBtn{
+  background-color: #FFB8AF;
+  color: black;
+  padding-right: 5vw;
+  font-size: 2.5vh;
+  width: 60vw;
+  height: 5vh;
+  margin: 7px
+}
+.binBtn{
+  background-color: #ED6B5A;
+  font-size: 2.5vh;
+  width: 60vw;
+  height: 5vh;
+  margin: 7px
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.binsH1{
+  background-color: #D34735;
+  color: white;
+  font-size: 3vh;
+  font-weight: bold;
+  display: flex;
+  height: 6vh;
+  padding-top: 1.5vh;
+  padding-left: 2vw;
+  width: 100%;
+  margin-bottom: 10px
+}
+.nav{
+  height: 6vh;
+  padding: 2vh;
+  padding-left: 9vw;
+  padding-right: 9vw
 }

@@ -20,7 +20,7 @@ export default function Nav(){
                 <Route path='/d' component={D}/>
                 {/* <Route path='/shevles/:shelfId' component={Bins}/> */}
                 <Route path='/bins/:shelfId/displayBin/:binNumber' component={displayBin}/>
-                <Route path='/bins/:shelfId/addBin/:binNumber' component={addBin}/>
+                <Route path='/bins/:shelfId/addBin/:index' component={addBin}/>
             </Switch>
         </div>
     )

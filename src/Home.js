@@ -5,7 +5,11 @@ export default class Home extends Component{
     render(){
         return(
             <div>
-                <h1>Shelfie</h1>
+              <header className='title'>
+                <img src='logo.png' className='homeImg' alt='company logo'/>
+                <h1 className='homeH1'>Shelfie</h1>
+            </header>
+        <main className='homeBtn'>    
         <Link to='/a'>
           <button>
             <h2>
@@ -34,6 +38,7 @@ export default class Home extends Component{
             </h2>
           </button>
         </Link>
+        </main>
             </div>
         )
     }

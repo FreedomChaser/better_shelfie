@@ -58,13 +58,21 @@ app.put('/api/bin/:id', async (req, res) => {
     let {id} = req.params
     let {product_name, price, img_url} = req.body
     
-    let updatedBin = db.update_bin_by_id(id, product_name, price, img_url)
+    let updatedBin = await db.update_bin_by_id(id, product_name, price, img_url)
 
-    res.status(200).send(updatedBin)
+    res.sendStatus(200)
 }) 
 
 //goes with addBin component
-// app.post()
+app.post('/api/bins/:shelfId/addBin/:binNum', async (req, res) => {
+    const db = req.app.get('db')
+    let {shelfId, binNum} = req.params
+    let {product_name, price, img_url} = req.body
+
+    let newBin = await db.add_bin(shelfId, binNum, product_name, price, img_url)
+
+    res.sendStatus(200)
+})
 
 
 

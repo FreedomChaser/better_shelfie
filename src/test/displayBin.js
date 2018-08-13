@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
 import axios from 'axios'
+import {Link} from 'react-router-dom'
+import Nav from '../nav/nav'
 
 export default class DisplayBin extends Component{
     constructor(){
@@ -53,18 +55,16 @@ export default class DisplayBin extends Component{
     submitEdit(id){
         let{bin_id, shelf_id, bin_number, product_name, price, img_url} = this.state
         axios.put(`/api/bin/${id}`, {bin_id, shelf_id, bin_number, product_name, price, img_url})
-        .then(res => 
-        {console.log(res)
-            
-            this.setState({
-            bin_id: res.data[0].bin_id, 
-            shelf_id: res.data[0].shelf_id, 
-            bin_number: res.data[0].bin_number, 
-            product_name: res.data[0].product_name, 
-            price: res.data[0].price,
-            img_url: res.data[0].img_url
-        })})
         this.clickToggle()
+    }
+
+    checkURL(val){
+        let str = val.length
+        if(str > 250){
+            alert('URL exceeds max character length of 250')
+        }else{
+            this.setState({imgUrl: val})
+        }
     }
     
     render(){
@@ -76,6 +76,7 @@ export default class DisplayBin extends Component{
             price,
             img_url
         } = this.state
+        
         // console.log('dispRes', this.state.bin)
         // console.log('dspProps', this.props)
        
@@ -83,7 +84,10 @@ export default class DisplayBin extends Component{
         if(this.state.edit === false){ 
         return(
             <div>
+                <Nav/>
+                <Link to={`/${shelf_id}`}>
                 <h1 className='binH1'>Shelf {shelf_id}</h1>
+                </Link>
                 <h2 className='binh2'>Bin {bin_number}</h2>
                 <img src={img_url} alt={`${product_name}`} img width='150px'/>
                 <p>Name</p>
@@ -96,14 +100,17 @@ export default class DisplayBin extends Component{
             )}else{
                 return(
                 <div>
+                    <Nav/>
+                    <Link to={`/${shelf_id}`}>
                     <h1 className='binH1'>Shelf {shelf_id}</h1>
+                    </Link>
                     <h2 className='binh2'>Bin {bin_number}</h2>
                     <p>Name</p>
                     <input onChange={e => this.handleName(e.target.value)} placeholder={`${product_name}`}/>
                     <p>Price</p>
                     <input onChange={e => this.handlePrice(e.target.value)} placeholder={`${price}`}/>
                     <p>Image url</p>
-                    <input onChange={e => this.handleUrl(e.target.value)} placeholder={`${img_url}`}/>
+                    <input className='inputAdd' onChange={e => this.checkURL(e.target.value)} placeholder='character limit 250'></input>
                     {this.state.edit === true? <button onClick={() => this.submitEdit(bin_id)}> Save </button>: null}
                 </div>
                 )

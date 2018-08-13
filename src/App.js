@@ -3,7 +3,7 @@ import './reset.css'
 import './App.css';
 import Routes from './nav/Routes'
 import {HashRouter} from 'react-router-dom'
-import Nav from './nav/nav'
+// import Nav from './nav/nav'
 
 class App extends Component {
     
@@ -11,7 +11,6 @@ class App extends Component {
     return (
       <HashRouter>
         <div>
-        <Nav/>
         <Routes/>
         </div>
       </HashRouter>
