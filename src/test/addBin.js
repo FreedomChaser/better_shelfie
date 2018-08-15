@@ -37,7 +37,7 @@ addInventory(){
         img_url: this.state.imgUrl
     })
     //add the routing to send user back to shelf view 
-    .then(() => {this.props.history.push(`/${shelfId}`)})
+    .then(() => {this.props.history.push(`/shelf/${shelfId}`)})
 }
     
     render(){
@@ -47,18 +47,22 @@ addInventory(){
             //this.props.match.params.shelfId OR index (+1?)
             //this is where I'll add all the input boxes and such
             <div>
+                <header className='addHeader'>
                 <Nav/>
-                <Link to={`/${this.props.match.params.shelfId}`}>
-                <h1>Shelf {this.props.match.params.shelfId}</h1>
+                <Link to={`/shelf/${this.props.match.params.shelfId}`}>
+                <h1 className='addH1'>Shelf {this.props.match.params.shelfId}</h1>
                 </Link>
-                <h2>Bin {Number(this.props.match.params.index) + 1}</h2>
-                <p>Name</p>
+                <h2 className='addH2'>Add to Bin {Number(this.props.match.params.index) + 1}</h2>
+                </header>
+                <main className='addMain'>
+                <p className='addP'>Name</p>
                 <input className='inputAdd' onChange={e => this.setState({name: e.target.value})}></input>
-                <p>Price</p>
+                <p className='addP'>Price</p>
                 <input className='inputAdd' onChange={e => this.setState({price: e.target.value})} placeholder='$0.00'></input>
-                <p>Image url</p>
+                <p className='addP'>Image url</p>
                 <input className='inputAdd' onChange={e => this.checkURL(e.target.value)} placeholder='character limit 250'></input>
-                <button onClick={this.addInventory}>+ Add Inventory</button>
+                <button className='addBtn' onClick={this.addInventory}>+ Add Inventory</button>
+                </main>
             </div>
         )
     }

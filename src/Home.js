@@ -10,28 +10,28 @@ export default class Home extends Component{
                 <h1 className='homeH1'>Shelfie</h1>
             </header>
         <main className='homeBtn'>    
-        <Link to='/a'>
+        <Link to='/shelf/a'>
           <button>
             <h2>
               Shelf A
             </h2>
           </button>
         </Link>
-        <Link to='/b'>
+        <Link to='/shelf/b'>
           <button>
             <h2>
               Shelf B
             </h2>
           </button>
         </Link>
-        <Link to='/c'>
+        <Link to='/shelf/c'>
           <button>
             <h2>
               Shelf C            
             </h2>
           </button>
         </Link>
-        <Link to='/d'>
+        <Link to='/shelf/d'>
           <button>
             <h2>
               Shelf D

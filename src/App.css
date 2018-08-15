@@ -1,8 +1,12 @@
+/* css for add and disp */
+/* media queries for the lot */
+
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 body{
   font-family: 'Open Sans', sans-serif;
 }
 /* home page */
+/* add media query for over 500 */
 .title{
   background-color: #AB2A19;
   color: white;
@@ -40,6 +44,7 @@ button{
 }
 
 /* bins page */
+/* add media query for over 500 */
 .shelf{
   display: flex;
 }
@@ -75,11 +80,149 @@ button{
   padding-top: 1.5vh;
   padding-left: 2vw;
   width: 100%;
-  margin-bottom: 10px
+  margin-bottom: 10px;
+  border: none
 }
 .nav{
   height: 6vh;
   padding: 2vh;
   padding-left: 9vw;
-  padding-right: 9vw
+  padding-right: 9vw;
+  border: none
+}
+
+/* add bins page */
+
+/* fix centered words */
+/* round outline */
+/* also binNum background */
+.addHeader{
+  display: flex
+}
+.addH1{
+  background-color: #D34735;
+  color: white;
+  font-size: 2.5vh;
+  font-weight: bold;
+  height: 6vh;
+  padding-top: 1.5vh;
+  padding-left: 2vw;
+  margin-bottom: 10px;
+  padding-right: 6vw
+}
+.addH2{
+  background-color: #FFB8AF;
+  font-size: 2.5vh;
+  font-weight: bolder;
+  height: 6vh;
+  padding-top: 1.5vh;
+  padding-left: 2vw;
+  padding-right: 27.5vw;
+}
+a:link{
+  text-decoration: none
+}
+.addMain{
+  display: flex;
+  flex-direction: column;
+  align-items: center
+}
+.addP{
+  font-size: 1.5vh;
+  font-weight: bolder;
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+}
+.inputAdd{
+  width: 43vw;
+  height: 4vh;
+  font-size: 1.5vh;
+  font-weight: bold;
+  border-radius: 10px;
+  border-color: #D34735;
+  border-width: 1px;
+  padding-left: 5px;
+}
+.inputAdd:focus{
+  outline: 2px solid #AB2A19
+}
+.addBtn{
+  background-color: #40F99B;
+  width: 43vw;
+  height: 4vh;
+  font-size: 1.5vh;
+  font-weight: bold;
+  border-radius: 40px;
+  color: black;
+  padding-right: 0vw;
+  margin-top: 2.5vh
+}
+
+/* display bin edit */
+.binDispBtn{
+  background-color: #D8D8D8;
+  border: none;
+  border-radius: 5px;
+  width: 20vw;
+  height: 5vh;
+  color: black;
+  font-weight: bold;
+  font-size: 2vh;
+  padding-right: 0;
+  text-transform: uppercase;
+  margin-top: 10px
+}
+.dispMain{
+  display: flex;
+}
+.dispImg{
+  margin-left: 8vw;
+}
+.dispDetails{
+  margin-left: 5vw;
+  margin-top: 4px
+}
+.dispBtns{
+  display: flex;
+}
+.dispInput{
+  border-style: solid;
+  border-color: #D34735;
+  border-width: 1px;
+  border-radius: 5px;
+  width: 40vw;
+  height: 5vh;
+  font-size: 2.5vh;
+  font-weight: bolder;
+  text-transform: capitalize;
+  padding-left: 5px;
+  padding-top: 10px;
+  margin-top: 1vh;
+  margin-bottom: 1vh
+}
+.dispNames{
+  font-size: 1.5vh;
+  font-weight: bold
+}
+
+/* display bin save */
+.dispMainSave{
+  display: flex;
+  flex-direction: column;
+  align-items:center
+}
+.dispSaveBtn{
+  background-color: #40F99B;
+  border: none;
+  border-radius: 40px;
+  width: 20vw;
+  height: 5vh;
+  color: black;
+  font-weight: bold;
+  font-size: 2vh;
+  padding-right: 0;
+  text-transform: uppercase;
+  margin-top: 10px
 }

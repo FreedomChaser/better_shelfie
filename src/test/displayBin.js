@@ -38,7 +38,7 @@ export default class DisplayBin extends Component{
     deleteBinContents(id, shelf){
         axios.delete(`/api/deleteBin/${id}`)
         // this command isn't rerouting like it should but delete back to db works
-        .then(() => this.props.history.push(`/${shelf}`))
+        .then(() => this.props.history.push(`/shelf/${shelf}`))
     }
 
     handleName(name){
@@ -84,34 +84,52 @@ export default class DisplayBin extends Component{
         if(this.state.edit === false){ 
         return(
             <div>
-                <Nav/>
-                <Link to={`/${shelf_id}`}>
-                <h1 className='binH1'>Shelf {shelf_id}</h1>
-                </Link>
-                <h2 className='binh2'>Bin {bin_number}</h2>
-                <img src={img_url} alt={`${product_name}`} img width='150px'/>
-                <p>Name</p>
-                <p className='bold'>{product_name}</p>
-                <p>Price</p>
-                <p className='bold'>{price}</p>
-                <button onClick={this.clickToggle}>Edit</button>
-                <button onClick={() => this.deleteBinContents(bin_id, shelf_id)}>Delete</button>
+                <header className='addHeader'>
+                    <Nav/>
+                    <Link to={`/shelf/${shelf_id}`}>
+                        <h1 className='addH1'>Shelf {shelf_id}</h1>
+                    </Link>
+                    <h2 className='addH2'>Bin {bin_number}</h2>
+                </header>
+                <main className='dispMain'>
+                    <div className='dispImg'>
+                        {/* is there a way to make image sizing dynamic? */}
+                        <img src={img_url} alt={`${product_name}`} img width='150px'/>
+                    </div>
+                    <div className='dispDetails'>
+                        <p className='dispNames'>Name</p>
+                        <p className='dispInput'>{product_name}</p>
+                        <p className='dispNames'>Price</p>
+                        <p className='dispInput'>${price}</p>
+                        <div className='dispBtns'>
+                            <button className='binDispBtn' onClick={this.clickToggle}>Edit</button>
+                            <button className='binDispBtn' onClick={() => this.deleteBinContents(bin_id, shelf_id)}>Delete</button>
+                        </div>
+                    </div>
+                </main>
             </div>
             )}else{
                 return(
                 <div>
-                    <Nav/>
-                    <Link to={`/${shelf_id}`}>
-                    <h1 className='binH1'>Shelf {shelf_id}</h1>
-                    </Link>
-                    <h2 className='binh2'>Bin {bin_number}</h2>
-                    <p>Name</p>
-                    <input onChange={e => this.handleName(e.target.value)} placeholder={`${product_name}`}/>
-                    <p>Price</p>
-                    <input onChange={e => this.handlePrice(e.target.value)} placeholder={`${price}`}/>
-                    <p>Image url</p>
-                    <input className='inputAdd' onChange={e => this.checkURL(e.target.value)} placeholder='character limit 250'></input>
-                    {this.state.edit === true? <button onClick={() => this.submitEdit(bin_id)}> Save </button>: null}
+                    <header className='addHeader'>
+                        <Nav/>
+                        <Link to={`/shelf/${shelf_id}`}>
+                            <h1 className='addH1'>Shelf {shelf_id}</h1>
+                        </Link>
+                        <h2 className='addH2'>Bin {bin_number}</h2>
+                    </header>
+                    <main className='dispMainSave'>
+                        <p className='addP'>Name</p>
+                        <input className='inputAdd' onChange={e => this.handleName(e.target.value)} placeholder={`${product_name}`}/>
+                        <p className='addP'>Price</p>
+                        <input className='inputAdd' onChange={e => this.handlePrice(e.target.value)} placeholder={`${price}`}/>
+                        <p className='addP'>Image url</p>
+                        <input className='inputAdd' onChange={e => this.checkURL(e.target.value)} placeholder='character limit 250'></input>
+                        <div className='dispBtns'>
+                            {this.state.edit === true ? <button className='dispSaveBtn' onClick={() => this.submitEdit(bin_id)}> Save </button>: null}
+                            <button className='binDispBtn' onClick={() => this.deleteBinContents(bin_id, shelf_id)}>Delete</button>
+                        </div>
+                    </main>
                 </div>
                 )
             

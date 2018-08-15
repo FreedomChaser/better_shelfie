@@ -1,6 +1,5 @@
 import React from 'react'
 import {withRouter, Link} from 'react-router-dom'
-
 class Nav extends React.Component{
     render(){
     // console.log('window', window.location.hash)
