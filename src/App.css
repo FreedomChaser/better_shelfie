@@ -28,14 +28,14 @@ body{
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 5%
+  padding: 5%;
 }
 
 button{
   background-color: #D34735;
   font-size: 3vh;
   color: white;
-  width: 65vw;
+  width: 50vw;
   height: 6vh;
   padding-right: 25vw;
   margin: 2%;
@@ -43,11 +43,12 @@ button{
   border-radius: 5px
 }
 
-/* bins page */
 /* add media query for over 500 */
+/* shelf page */
 .shelf{
   display: flex;
 }
+/* bins page */
 .binsBtn{
   display: flex;
   flex-direction: column;
@@ -97,7 +98,8 @@ button{
 /* round outline */
 /* also binNum background */
 .addHeader{
-  display: flex
+  display: flex;
+  width: 100vw;
 }
 .addH1{
   background-color: #D34735;
@@ -105,6 +107,7 @@ button{
   font-size: 2.5vh;
   font-weight: bold;
   height: 6vh;
+  width: 26vw;
   padding-top: 1.5vh;
   padding-left: 2vw;
   margin-bottom: 10px;
@@ -117,7 +120,7 @@ button{
   height: 6vh;
   padding-top: 1.5vh;
   padding-left: 2vw;
-  padding-right: 27.5vw;
+  width: 100%
 }
 a:link{
   text-decoration: none
@@ -142,11 +145,11 @@ a:link{
   font-weight: bold;
   border-radius: 10px;
   border-color: #D34735;
-  border-width: 1px;
+  border-width: 2px;
   padding-left: 5px;
 }
 .inputAdd:focus{
-  outline: 2px solid #AB2A19
+  outline: 4px solid #AB2A19
 }
 .addBtn{
   background-color: #40F99B;
@@ -198,7 +201,7 @@ a:link{
   font-weight: bolder;
   text-transform: capitalize;
   padding-left: 5px;
-  padding-top: 10px;
+  padding-top: 6px;
   margin-top: 1vh;
   margin-bottom: 1vh
 }
@@ -226,3 +229,45 @@ a:link{
   text-transform: uppercase;
   margin-top: 10px
 }
+
+/* small */
+@media only screen and (min-width: 550px){
+  .nullBtn{
+    padding-right: 9.5vw
+  }
+}
+  
+  /* body{
+    background-color: #FFB8AF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20vh;
+
+  } 
+ .middle{
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    margin: 0
+  } */
+
+
+/* medium */
+@media only screen and (min-width: 780px){
+  .nullBtn{
+    padding-right: 14.5vw
+  }
+}
+
+/* large */
+@media only screen and (min-width: 1100px){
+  .nullBtn{
+    padding-right: 17.5vw
+  }
+}
+
+/* XL */
+/* @media only screen and (min-width: 1200px){} */
+
+

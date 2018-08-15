@@ -28,25 +28,30 @@ checkURL(val){
 }
     //have an axios.post that pulls info from url params(through params) and state(through body) to pass everything to server
 addInventory(){
-    console.log('working')
     let shelfId = this.props.match.params.shelfId
     let binNum = Number(this.props.match.params.index) + 1
-    axios.post(`/api/bins/${shelfId}/addBin/${binNum}`, {
+    if(!this.name || !this.price || !this.imgUrl){
+        return alert('Please fill in all fields')
+    }else{
+        axios.post(`/api/bins/${shelfId}/addBin/${binNum}`, {
         product_name: this.state.name, 
         price: this.state.price, 
         img_url: this.state.imgUrl
     })
     //add the routing to send user back to shelf view 
-    .then(() => {this.props.history.push(`/shelf/${shelfId}`)})
+    .then(() => {
+        this.props.history.push(`/shelf/${shelfId}`)})
+
+    }
 }
     
     render(){
     // console.log('props', this.props)
         
         return(
-            //this.props.match.params.shelfId OR index (+1?)
-            //this is where I'll add all the input boxes and such
-            <div>
+            //this.props.match.params.shelfId OR index (+1)
+            //fix it so empty vals can't be saved
+            <div className='middle'>
                 <header className='addHeader'>
                 <Nav/>
                 <Link to={`/shelf/${this.props.match.params.shelfId}`}>

@@ -19,6 +19,9 @@ massive(CONNECTION_STRING).then(db => {
 })
 // .catch(error=>console.log('server connection error:', error))
 
+//add in 500 errors
+//move controls to controllers
+
 //goes with shelf comp
 app.get('/api/shelves/:id', async (req,res) => {
     const db = req.app.get('db')
@@ -80,4 +83,5 @@ app.post('/api/bins/:shelfId/addBin/:binNum', async (req, res) => {
 
 app.listen(SERVER_PORT, () => {
     console.log(`spellbound on port ${SERVER_PORT}`)
+    
 })

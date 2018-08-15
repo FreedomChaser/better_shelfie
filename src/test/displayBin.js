@@ -83,7 +83,7 @@ export default class DisplayBin extends Component{
         //conditionally render save and edit
         if(this.state.edit === false){ 
         return(
-            <div>
+            <div className='middle'>
                 <header className='addHeader'>
                     <Nav/>
                     <Link to={`/shelf/${shelf_id}`}>
@@ -110,7 +110,7 @@ export default class DisplayBin extends Component{
             </div>
             )}else{
                 return(
-                <div>
+                <div className='middle'>
                     <header className='addHeader'>
                         <Nav/>
                         <Link to={`/shelf/${shelf_id}`}>

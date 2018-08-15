@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 export default class Home extends Component{
     render(){
         return(
-            <div>
+            <div className='middle'>
               <header className='title'>
                 <img src='logo.png' className='homeImg' alt='company logo'/>
                 <h1 className='homeH1'>Shelfie</h1>

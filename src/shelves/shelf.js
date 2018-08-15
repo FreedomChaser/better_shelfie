@@ -6,7 +6,7 @@ export default class Shelf extends React.Component{
     render(){
         const id = this.props.match.params.id
         return(
-            <div>
+            <div className='middle'>
                 <div className='shelf'>
                     <Nav/>
                     <h1 className='binsH1'>Shelf {id}</h1>
